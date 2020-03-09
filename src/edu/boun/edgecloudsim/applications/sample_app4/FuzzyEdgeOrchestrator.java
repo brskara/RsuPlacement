@@ -89,7 +89,7 @@ public class FuzzyEdgeOrchestrator extends EdgeOrchestrator {
 			double manDelay = SimManager.getInstance().getNetworkModel().getUploadDelay(SimSettings.GENERIC_EDGE_DEVICE_ID,
 					SimSettings.GENERIC_EDGE_DEVICE_ID, dummyTask /* 1 Mbit */);
 			
-			double edgeUtilization = SimManager.getInstance().getEdgeServerManager().getAvgUtilization();
+			double edgeUtilization = SimManager.getInstance().getEdgeServerManager().getAvgUtilization()[0];
 			
 			//finding least loaded neighbor edge host
 			double bestRemoteEdgeUtilization = 100; //start with max value

@@ -14,8 +14,13 @@ Desktop.ini
 
 # bin folder
 bin
+out
+scripts/rsu_placement/output
+sim_results
 
 # eclipse's files
 .settings
 .classpath
 .project
+
+

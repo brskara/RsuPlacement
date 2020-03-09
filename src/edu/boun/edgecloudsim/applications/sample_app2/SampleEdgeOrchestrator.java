@@ -67,7 +67,7 @@ public class SampleEdgeOrchestrator extends EdgeOrchestrator {
 			
 			double wanBW = (wanDelay == 0) ? 0 : (1 / wanDelay); /* Mbps */
 			
-			double edgeUtilization = SimManager.getInstance().getEdgeServerManager().getAvgUtilization();
+			double edgeUtilization = SimManager.getInstance().getEdgeServerManager().getAvgUtilization()[0];
 			
 
 			if(policy.equals("NETWORK_BASED")){

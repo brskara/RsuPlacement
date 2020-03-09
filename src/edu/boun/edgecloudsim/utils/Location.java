@@ -20,7 +20,10 @@ public class Location {
 		xPos = _xPos;
 		yPos = _yPos;
 	}
-	
+
+	public Location() {
+	}
+
 	@Override
 	public boolean equals(Object other){
 		boolean result = false;

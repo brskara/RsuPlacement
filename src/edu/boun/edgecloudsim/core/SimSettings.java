@@ -34,7 +34,7 @@ public class SimSettings {
 	private Document edgeDevicesDoc = null;
 	
 	public static final double CLIENT_ACTIVITY_START_TIME = 10;
-	
+
 	//enumarations for the VM types
 	public static enum VM_TYPES { MOBILE_VM, EDGE_VM, CLOUD_VM }
 	
@@ -60,6 +60,7 @@ public class SimSettings {
     private int MIN_NUM_OF_MOBILE_DEVICES;
     private int MAX_NUM_OF_MOBILE_DEVICES;
     private int MOBILE_DEVICE_COUNTER_SIZE;
+    private int WLAN_RANGE;
     
     private int NUM_OF_EDGE_DATACENTERS;
     private int NUM_OF_EDGE_HOSTS;
@@ -86,6 +87,12 @@ public class SimSettings {
     
     private String[] SIMULATION_SCENARIOS;
     private String[] ORCHESTRATOR_POLICIES;
+
+    private double NORTHERN_BOUND;
+    private double EASTERN_BOUND;
+    private double SOUTHERN_BOUND;
+    private double WESTERN_BOUND;
+
     
     // mean waiting time (minute) is stored for each place types
     private double[] mobilityLookUpTable;
@@ -134,17 +141,18 @@ public class SimSettings {
 			Properties prop = new Properties();
 			prop.load(input);
 
-			SIMULATION_TIME = (double)60 * Double.parseDouble(prop.getProperty("simulation_time")); //seconds
-			WARM_UP_PERIOD = (double)60 * Double.parseDouble(prop.getProperty("warm_up_period")); //seconds
-			INTERVAL_TO_GET_VM_LOAD_LOG = (double)60 * Double.parseDouble(prop.getProperty("vm_load_check_interval")); //seconds
-			INTERVAL_TO_GET_VM_LOCATION_LOG = (double)60 * Double.parseDouble(prop.getProperty("vm_location_check_interval")); //seconds
+			SIMULATION_TIME = Double.parseDouble(prop.getProperty("simulation_time")); //seconds
+			WARM_UP_PERIOD = Double.parseDouble(prop.getProperty("warm_up_period")); //seconds
+			INTERVAL_TO_GET_VM_LOAD_LOG = Double.parseDouble(prop.getProperty("vm_load_check_interval")); //seconds
+			INTERVAL_TO_GET_VM_LOCATION_LOG = Double.parseDouble(prop.getProperty("vm_location_check_interval")); //seconds
 			FILE_LOG_ENABLED = Boolean.parseBoolean(prop.getProperty("file_log_enabled"));
 			DEEP_FILE_LOG_ENABLED = Boolean.parseBoolean(prop.getProperty("deep_file_log_enabled"));
 			
 			MIN_NUM_OF_MOBILE_DEVICES = Integer.parseInt(prop.getProperty("min_number_of_mobile_devices"));
 			MAX_NUM_OF_MOBILE_DEVICES = Integer.parseInt(prop.getProperty("max_number_of_mobile_devices"));
 			MOBILE_DEVICE_COUNTER_SIZE = Integer.parseInt(prop.getProperty("mobile_device_counter_size"));
-			
+			WLAN_RANGE = Integer.parseInt(prop.getProperty("wlan_range", "0"));
+
 			WAN_PROPOGATION_DELAY = Double.parseDouble(prop.getProperty("wan_propogation_delay"));
 			LAN_INTERNAL_DELAY = Double.parseDouble(prop.getProperty("lan_internal_delay"));
 			BANDWITH_WLAN = 1000 * Integer.parseInt(prop.getProperty("wlan_bandwidth"));
@@ -166,6 +174,12 @@ public class SimSettings {
 			ORCHESTRATOR_POLICIES = prop.getProperty("orchestrator_policies").split(",");
 			
 			SIMULATION_SCENARIOS = prop.getProperty("simulation_scenarios").split(",");
+
+			NORTHERN_BOUND = Double.parseDouble(prop.getProperty("northern_bound"));
+			SOUTHERN_BOUND = Double.parseDouble(prop.getProperty("southern_bound"));
+			EASTERN_BOUND = Double.parseDouble(prop.getProperty("eastern_bound"));
+			WESTERN_BOUND = Double.parseDouble(prop.getProperty("western_bound"));
+
 			
 			//avg waiting time in a place (min)
 			double place1_mean_waiting_time = Double.parseDouble(prop.getProperty("attractiveness_L1_mean_waiting_time"));
@@ -320,6 +334,14 @@ public class SimSettings {
 	}
 
 	/**
+	 * returns edge device range in meter
+	 */
+	public int getWlanRange()
+	{
+		return WLAN_RANGE;
+	}
+
+	/**
 	 * returns the number of edge datacenters
 	 */
 	public int getNumOfEdgeDatacenters()
@@ -453,6 +475,22 @@ public class SimSettings {
 	public String[] getOrchestratorPolicies()
 	{
 		return ORCHESTRATOR_POLICIES;
+	}
+
+	public double getNorthernBound() {
+		return NORTHERN_BOUND;
+	}
+
+	public double getEasternBound() {
+		return EASTERN_BOUND;
+	}
+
+	public double getSouthernBound() {
+		return SOUTHERN_BOUND;
+	}
+
+	public double getWesternBound() {
+		return WESTERN_BOUND;
 	}
 	
 	/**

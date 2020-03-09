@@ -11,6 +11,7 @@
 
 package edu.boun.edgecloudsim.edge_client;
 
+import edu.boun.edgecloudsim.applications.rsu_placement.model.Coordinate;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.UtilizationModel;
 
@@ -18,6 +19,7 @@ import edu.boun.edgecloudsim.utils.Location;
 
 public class Task extends Cloudlet {
 	private Location submittedLocation;
+	private Coordinate coordinate;
 	private int type;
 	private int mobileDeviceId;
 	private int hostIndex;
@@ -79,5 +81,13 @@ public class Task extends Cloudlet {
 	
 	public int getTaskType(){
 		return type;
+	}
+
+	public Coordinate getCoordinate() {
+		return coordinate;
+	}
+
+	public void setCoordinate(Coordinate coordinate) {
+		this.coordinate = coordinate;
 	}
 }

@@ -18,7 +18,7 @@ if ! [[ $2 =~ $re ]] ; then
 	exit 1
 fi
 
-script_root_path="$(dirname "$(readlink -f "$0")")"
+script_root_path="$(dirname "$(sh readLink.sh "$0")")"
 root_out_folder=${script_root_path}/output
 num_of_processes=$1
 iterationNumber=$2

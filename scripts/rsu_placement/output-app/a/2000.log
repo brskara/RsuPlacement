@@ -1,0 +1,25 @@
+Simulation started at 24/03/2019 22:51:30
+----------------------------------------------------------------------
+Scenario started at 24/03/2019 22:51:30
+Duration: 60.0 min (warm up period: 5.0 sec) - #vehicles: 2000
+Creating tasks...Done, 
+Creating device locations...Done.
+SimManager is starting...Done.
+.........10.........20.........30.........40.........50.........60.........70.........80.........90.........100
+# of tasks: 575583
+# of failed tasks: 50033
+# of completed tasks: 525550
+# of uncompleted tasks : 125
+# of failed tasks due to vm capacity: 22991
+# of failed tasks due to Mobility/Bandwidth/Range: 15094/0/11948
+percentage of failed tasks: 8.692578%
+average service time: 1.082363 seconds.
+average processing time: 1.065579 seconds.
+average network delay: 0.016784 seconds.
+average server utilization: 6.369103
+average task length: 299.2586206896552
+average task input size: 1025.2208828086461
+average task output size: 1024.5626654484565
+Scenario finished at 24/03/2019 23:27:52. It took 36 Minutes 21 Seconds
+----------------------------------------------------------------------
+Simulation finished at 24/03/2019 23:27:52. It took 36 Minutes 21 Seconds

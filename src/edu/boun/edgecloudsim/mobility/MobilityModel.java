@@ -23,7 +23,11 @@ public abstract class MobilityModel {
 		numberOfMobileDevices=_numberOfMobileDevices;
 		simulationTime=_simulationTime;
 	};
-	
+
+	public MobilityModel() {
+
+	}
+
 	/*
 	 * calculate location of the devices according to related mobility model
 	 */

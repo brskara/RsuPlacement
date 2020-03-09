@@ -27,7 +27,11 @@ public abstract class EdgeOrchestrator extends SimEntity{
 		policy = _policy;
 		simScenario = _simScenario;
 	}
-	
+
+	public EdgeOrchestrator() {
+		super("EdgeOrchestrator");
+	}
+
 	/*
 	 * initialize edge orchestrator if needed
 	 */

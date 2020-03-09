@@ -30,7 +30,7 @@ public class MainApp {
 	 */
 	public static void main(String[] args) {
 		//disable console output of cloudsim library
-		Log.disable();
+		//Log.disable();
 		
 		//enable console ourput and file output of this application
 		SimLogger.enablePrintLog();

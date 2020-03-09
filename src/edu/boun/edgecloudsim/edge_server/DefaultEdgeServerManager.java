@@ -110,7 +110,7 @@ public class DefaultEdgeServerManager extends EdgeServerManager{
 	}
 
 	//average utilization of all VMs
-	public double getAvgUtilization(){
+	public double[] getAvgUtilization(){
 		double totalUtilization = 0;
 		double vmCounter = 0;
 		
@@ -128,7 +128,9 @@ public class DefaultEdgeServerManager extends EdgeServerManager{
 				}
 			}
 		}
-		return totalUtilization / vmCounter;
+		double[] arr = new double[0];
+		arr[0] = totalUtilization / vmCounter;
+		return arr;
 	}
 
 	private Datacenter createDatacenter(int index, Element datacenterElement) throws Exception{

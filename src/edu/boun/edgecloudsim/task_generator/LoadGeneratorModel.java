@@ -28,7 +28,11 @@ public abstract class LoadGeneratorModel {
 		simulationTime=_simulationTime;
 		simScenario=_simScenario;
 	};
-	
+
+	public LoadGeneratorModel() {
+
+	}
+
 	/*
 	 * each task has a virtual start time
 	 * it will be used while generating task

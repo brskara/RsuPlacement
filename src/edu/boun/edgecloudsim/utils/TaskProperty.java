@@ -42,8 +42,28 @@ public class TaskProperty {
     	
     	pesNumber = (int)SimSettings.getInstance().getTaskLookUpTable()[_taskType][8];
 	}
-    
-    public double getStartTime(){
+
+	public TaskProperty(int mobileDeviceId, double startTime, ExponentialDistribution[] expRngList) {
+		this.mobileDeviceId = mobileDeviceId;
+		this.startTime = startTime;
+		taskType = 0;
+		inputFileSize = (long)expRngList[0].sample();
+		outputFileSize = (long)expRngList[1].sample();
+		length = (long) expRngList[2].sample();
+		pesNumber = (int)SimSettings.getInstance().getTaskLookUpTable()[0][8];
+	}
+
+	public TaskProperty(Integer mobileDeviceId, double startTime, double input, double output, double len) {
+		this.mobileDeviceId = mobileDeviceId;
+		this.startTime = startTime;
+		taskType = 0;
+		inputFileSize = (long)input;
+		outputFileSize = (long)output;
+		length = (long)len;
+		pesNumber = (int)SimSettings.getInstance().getTaskLookUpTable()[0][8];
+	}
+
+	public double getStartTime(){
     	return startTime;
     }
     

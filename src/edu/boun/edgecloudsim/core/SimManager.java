@@ -228,12 +228,9 @@ public class SimManager extends SimEntity {
 				}
 				break;
 			case GET_LOAD_LOG:
-				SimLogger.getInstance().addVmUtilizationLog(
-						CloudSim.clock(),
-						edgeServerManager.getAvgUtilization(),
-						cloudServerManager.getAvgUtilization(),
-						mobileServerManager.getAvgUtilization());
-				
+				if(CloudSim.clock() > SimSettings.getInstance().getWarmUpPeriod()) {
+					SimLogger.getInstance().addVmUtilizationLog(CloudSim.clock(), edgeServerManager.getAvgUtilization());
+				}
 				schedule(getId(), SimSettings.getInstance().getVmLoadLogInterval(), GET_LOAD_LOG);
 				break;
 			case PRINT_PROGRESS:
@@ -247,6 +244,7 @@ public class SimManager extends SimEntity {
 
 				break;
 			case STOP_SIMULATION:
+				SimLogger.getInstance().addVmUtilizationLog(CloudSim.clock(), edgeServerManager.getAvgUtilization());
 				SimLogger.printLine("100");
 				CloudSim.terminateSimulation();
 				try {
